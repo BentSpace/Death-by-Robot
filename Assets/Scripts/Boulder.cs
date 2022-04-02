@@ -5,8 +5,8 @@ using UnityEngine;
 public class Boulder : MonoBehaviour
 {
 
-    public int maxAge; 
-    public int currentAge;
+    public float maxAge; 
+    public float currentAge;
     public bool isDecaying;
     public bool cullMe;
     // Start is called before the first frame update
