@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: a9141a1f6b2b64da590f55866ca32bf9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - boulderPrefab: {fileID: 3342518290673868999, guid: 16990c603a3fe4b1e9d3c55c8156bdeb, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
