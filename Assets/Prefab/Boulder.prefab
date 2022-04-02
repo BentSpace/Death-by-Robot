@@ -125,3 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63f16a0010788a408634ca5f8323847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxAge: 4
+  currentAge: 0
+  isDecaying: 0
+  cullMe: 0

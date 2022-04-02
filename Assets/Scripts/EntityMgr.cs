@@ -5,9 +5,10 @@ using UnityEngine;
 public class EntityMgr : MonoBehaviour
 {
     // Reference to the Prefab.
-    public Boulder boulderPrefab;
-    List<Boulder> boulders = new List<Boulder>();
-    public float slowSpeed = 2.5f;
+    public GameObject boulderPrefab;
+    List<GameObject> boulders = new List<GameObject>();
+    //public float slowSpeed = 2.5f;
+    public int boulderLimit = 25;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class EntityMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /* Time-based culling
         foreach(Boulder b in boulders) {
             // If the boulder is going too slowly, start the process of decay
             float speedTest = b.GetComponent<Rigidbody>().velocity.magnitude;
@@ -33,16 +35,24 @@ public class EntityMgr : MonoBehaviour
                 Destroy(b);
             }
         }
+        */
     }
 
     void OnMouseDown()
     {
         SpawnBoulder();
+        while(boulders.Count > boulderLimit) {
+            GameObject b = boulders[0];
+            boulders.Remove(b);
+            Destroy(b.gameObject);
+        }
+        
     }
 
 
     void SpawnBoulder() {
-        boulders.Add(Instantiate(boulderPrefab, new Vector3(445, 400, 700), Quaternion.identity));
+        GameObject b = Instantiate(boulderPrefab, new Vector3(445, 400, 700), Quaternion.identity);
+        boulders.Add(b);
     }
 
     void OnCollisionEnter(Collision collision)
