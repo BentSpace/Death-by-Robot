@@ -142,3 +142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 840a6e916bd35ee48bd338bf42f572b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  c: 0
+  e: 0
+  obstacleType: boulder
+  boulderC: 1.5
+  boulderE: -2
+  robotC: 1.5
+  robotE: -2

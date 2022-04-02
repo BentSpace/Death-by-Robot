@@ -6,13 +6,17 @@ public class EntityMgr : MonoBehaviour
 {
     // Reference to the Prefab.
     public GameObject boulderPrefab;
-    List<GameObject> boulders = new List<GameObject>();
+    public List<GameObject> boulders = new List<GameObject>();
+    public List<GameObject> robots   = new List<GameObject>();
     //public float slowSpeed = 2.5f;
     public int boulderLimit = 25;
+
+    public static EntityMgr inst;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        inst = this;
     }
 
     // Update is called once per frame

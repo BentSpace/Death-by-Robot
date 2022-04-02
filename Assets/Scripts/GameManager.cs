@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIMgr : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
+
+    public static GameManager inst;
+    public PotentialField player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        inst = this;
     }
 
     // Update is called once per frame

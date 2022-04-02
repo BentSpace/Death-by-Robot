@@ -8,10 +8,12 @@ public class PotentialField : MonoBehaviour
     public float e;
     public string obstacleType;
 
-    public float boulderC = 1.5f;       // TODO Adjust these values!
-    public float boulderE = -2f;
-    public float robotC = 1.5f;
-    public float robotE = -2f;
+    public float boulderC =  1.5f;       // TODO Tweak 'C' values!
+    public float boulderE = -2f;   // DO NOT CHANGE (repulsive to robots)
+    public float robotC   =  1.5f;
+    public float robotE   = -2f;   // DO NOT CHANGE (repulsive to robots)
+    public float playerC  =  1.5f;
+    public float playerE  = -1f;   // DO NOT CHANGE (attractive to robots)
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +27,13 @@ public class PotentialField : MonoBehaviour
                 c = boulderC;
                 e = boulderE;
                 break;
+            case "player":
+                c = playerC;
+                e = playerE;
+                break;
             default:
                 c = 1.5f;
-                e = -2f;
+                e = -2f;        // Repulsive by default
                 break;
         }
 
