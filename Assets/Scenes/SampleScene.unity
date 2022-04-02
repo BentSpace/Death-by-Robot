@@ -500,7 +500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9141a1f6b2b64da590f55866ca32bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boulderPrefab: {fileID: 1313965994}
+  boulderPrefab: {fileID: 3342518290673868999, guid: 16990c603a3fe4b1e9d3c55c8156bdeb, type: 3}
+  slowSpeed: 2.5
 --- !u!4 &1034823267
 Transform:
   m_ObjectHideFlags: 0
@@ -515,65 +516,3 @@ Transform:
   m_Father: {fileID: 709455216}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1313965993
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3342518290673868994, guid: 16990c603a3fe4b1e9d3c55c8156bdeb, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3342518290673868994, guid: 16990c603a3fe4b1e9d3c55c8156bdeb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 444.47
-      objectReference: {fileID: 0}
-    - target: {fileID: 3342518290673868994, guid: 16990c603a3fe4b1e9d3c55c8156bdeb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 342.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 3342518290673868994, guid: 16990c603a3fe4b1e9d3c55c8156bdeb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 709.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 3342518290673868994, guid: 16990c603a3fe4b1e9d3c55c8156bdeb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3342518290673868994, guid: 16990c603a3fe4b1e9d3c55c8156bdeb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3342518290673868994, guid: 16990c603a3fe4b1e9d3c55c8156bdeb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3342518290673868994, guid: 16990c603a3fe4b1e9d3c55c8156bdeb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3342518290673868994, guid: 16990c603a3fe4b1e9d3c55c8156bdeb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3342518290673868994, guid: 16990c603a3fe4b1e9d3c55c8156bdeb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3342518290673868994, guid: 16990c603a3fe4b1e9d3c55c8156bdeb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3342518290673868999, guid: 16990c603a3fe4b1e9d3c55c8156bdeb, type: 3}
-      propertyPath: m_Name
-      value: Boulder
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 16990c603a3fe4b1e9d3c55c8156bdeb, type: 3}
---- !u!1 &1313965994 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3342518290673868999, guid: 16990c603a3fe4b1e9d3c55c8156bdeb, type: 3}
-  m_PrefabInstance: {fileID: 1313965993}
-  m_PrefabAsset: {fileID: 0}
