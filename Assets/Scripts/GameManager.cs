@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour
 
     public static GameManager inst;
     public PotentialField player;
+
+    void Awake() {
+        inst = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
