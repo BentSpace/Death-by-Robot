@@ -6,8 +6,8 @@ public class EntityMgr : MonoBehaviour
 {
     // Reference to the Prefab.
     public GameObject boulderPrefab;
-    public List<GameObject> boulders = new List<GameObject>();
-    public List<GameObject> robots   = new List<GameObject>();
+    public List<GameObject> boulders;
+    public List<GameObject> robots;
     //public float slowSpeed = 2.5f;
     public int boulderLimit = 25;
     public Vector3 worldPosition;
@@ -20,6 +20,8 @@ public class EntityMgr : MonoBehaviour
     {
         inst = this;
         playerPosition = GameObject.Find("Player").transform.position;
+        boulders = new List<GameObject>();
+        robots = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -50,8 +52,7 @@ public class EntityMgr : MonoBehaviour
         SpawnBoulder();
         while(boulders.Count > boulderLimit) {
             GameObject b = boulders[0];
-            boulders.Remove(b);
-            Destroy(b.gameObject);
+            CullBoulder(b);
         }
         
     }
@@ -70,12 +71,14 @@ public class EntityMgr : MonoBehaviour
         boulders.Add(b);
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        //ContactPoint contact = collision.contacts[0];
-        //Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
-        //Vector3 pos = contact.point;
-        //Instantiate(boulderPrefab, pos, rot);
+    public void CullRobot(GameObject tobor) {
+        robots.Remove(tobor);
+        Destroy(tobor);
+    }
+
+    public void CullBoulder(GameObject rollder) {
+        boulders.Remove(rollder);
+        Destroy(rollder);
     }
 
 }

@@ -43,4 +43,11 @@ public class Boulder : MonoBehaviour
         cullMe = false;
         currentAge = maxAge;
     }
+
+    void OnCollisionEnter(Collision collision) {
+        Robot tobor = collision.gameObject.GetComponent<Robot>();
+        if (tobor != null) {
+            EntityMgr.inst.CullRobot(collision.gameObject);
+        }
+    }
 }
