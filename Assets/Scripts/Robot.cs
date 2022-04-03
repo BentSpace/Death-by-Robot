@@ -11,23 +11,24 @@ public class Robot : MonoBehaviour
     // VARIABLE
     public float speed;
     public float desiredSpeed;
-    public float cruisingSpeed;
-    public float maneuverSpeed;
-    public float turningSpeed;
+    public float maxSpeed;
+    public float minSpeed;
+    public float acceleration;
+    //public float cruisingSpeed;
+    //public float maneuverSpeed;
+    //public float turningSpeed;
     public float heading;
     public float desiredHeading;
     //public float currentStoppingDistance;
     // CONST
-    public float acceleration;
     public float turnRate;
-    public float maxSpeed;
-    public float minSpeed;
+
 
     // Start is called before the first frame update
     void Start() {
-        cruisingSpeed = (maxSpeed + minSpeed) * .75f;
-        maneuverSpeed = 0;
-        turningSpeed = maxSpeed * 0.1f;
+        //cruisingSpeed = (maxSpeed + minSpeed) * .75f;
+        //maneuverSpeed = 0;
+        //turningSpeed = maxSpeed * 0.1f;
         desiredPosition = position;
     }
 

@@ -26,11 +26,30 @@ public class OrientedPhysics : MonoBehaviour
 
     void DoPhysics() {
 
+        /*
         // Potential Field Physics
         Vector3 finalVector = GetBoulderVector();
         finalVector += GetFriendVector();
         finalVector += GetPlayerVector();
         float finalAngle = Vector3.Angle(finalVector, transform.forward);
+        */
+
+        Vector3 playerPos = player.gameObject.transform.position;
+        entity.desiredPosition = playerPos;
+        
+        entity.desiredHeading = GetHeading(entity.position, entity.desiredPosition);
+
+        entity.heading = Utils.NormalizeAngle(entity.heading);
+        entity.desiredHeading = Utils.NormalizeAngle(entity.desiredHeading);
+
+        if (Utils.ApproximatelyEqual(entity.heading, entity.desiredHeading)) {
+            entity.heading = entity.desiredHeading;
+        } else if (Utils.AngleDiffPosNeg(entity.desiredHeading, entity.heading) > 0) {
+            entity.heading += entity.turnRate * Time.deltaTime;
+        } else if (Utils.AngleDiffPosNeg(entity.desiredHeading, entity.heading) < 0) {
+            entity.heading -= entity.turnRate * Time.deltaTime;
+        }
+
         // Accelerate/decelerate to desired speed
         if (Utils.ApproximatelyEqual(entity.speed, entity.desiredSpeed)) {
             entity.speed = entity.desiredSpeed;
@@ -40,34 +59,23 @@ public class OrientedPhysics : MonoBehaviour
             entity.speed = entity.speed - entity.acceleration * Time.deltaTime;
         }
 
-        // Normalize/recalculate heading
-        entity.heading = Utils.NormalizeAngle(entity.heading);
-        //entity.desiredHeading = Utils.NormalizeAngle(Mathf.Atan2(entity.desiredPosition.x - entity.position.x, entity.desiredPosition.z - entity.position.z) * Mathf.Rad2Deg);
-        entity.desiredHeading = Utils.NormalizeAngle(finalAngle);
-
-        // Adjust heading (turning)
-        if (Utils.ApproximatelyEqual(entity.heading, entity.desiredHeading)) {
-            entity.heading = entity.desiredHeading;
-        } else if (Utils.AngleDiffPosNeg(entity.desiredHeading, entity.heading) > 0) {
-            entity.heading += entity.turnRate * Time.deltaTime;
-        } else if (Utils.AngleDiffPosNeg(entity.desiredHeading, entity.heading) < 0) {
-            entity.heading -= entity.turnRate * Time.deltaTime;
-        }
-
-        // Recalculate velocity
         entity.velocity.x = entity.speed * Mathf.Sin(entity.heading * Mathf.Deg2Rad);
         entity.velocity.y = 0;
         entity.velocity.z = entity.speed * Mathf.Cos(entity.heading * Mathf.Deg2Rad);
 
-        // Step position movement
+        eulerRotation.y = entity.heading;
+        transform.localEulerAngles = eulerRotation;
+
         entity.position = entity.position + entity.velocity * Time.deltaTime;
+        entity.position = Utils.GetTerrainPos(entity.position.x, entity.position.z) + new Vector3(0.0f, robotLevitation, 0.0f);
         transform.localPosition = entity.position;
 
-        // Adjust position for terrain height
-        entity.position = Utils.GetTerrainPos(entity.position.x, entity.position.z) + new Vector3(0.0f, robotLevitation, 0.0f);
+    }
 
-        eulerRotation.y = -entity.heading;
-        transform.localEulerAngles = eulerRotation;
+    float GetHeading(Vector3 start, Vector3 end) {
+        Vector3 diff = end - start;
+        diff.y = 0;
+        return Mathf.Atan2(diff.y, diff.x);
     }
 
     public Vector3 GetBoulderVector() {
