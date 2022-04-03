@@ -10,6 +10,8 @@ public class EntityMgr : MonoBehaviour
     public List<GameObject> robots   = new List<GameObject>();
     //public float slowSpeed = 2.5f;
     public int boulderLimit = 25;
+    public Vector3 worldPosition;
+    public Vector3 playerPosition;
 
     public static EntityMgr inst;
 
@@ -17,6 +19,7 @@ public class EntityMgr : MonoBehaviour
     void Start()
     {
         inst = this;
+        playerPosition = GameObject.Find("Player").transform.position;
     }
 
     // Update is called once per frame
@@ -55,7 +58,15 @@ public class EntityMgr : MonoBehaviour
 
 
     void SpawnBoulder() {
-        GameObject b = Instantiate(boulderPrefab, new Vector3(445, 400, 700), Quaternion.identity);
+
+        Plane plane = new Plane(Vector3.up, playerPosition);
+        float distance;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (plane.Raycast(ray, out distance))
+        {
+            worldPosition = ray.GetPoint(distance);
+        }
+        GameObject b = Instantiate(boulderPrefab, worldPosition, Quaternion.identity);
         boulders.Add(b);
     }
 
