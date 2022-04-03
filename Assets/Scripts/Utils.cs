@@ -9,6 +9,7 @@ public class Utils : MonoBehaviour
     public static float EPSILON = 0.01f;
     public static float VECTOR_EPSILON = 1f;
     public static Utils inst;
+    static int layerMask = LayerMask.GetMask("Terrain");
 
     void Start()
     {
@@ -29,7 +30,7 @@ public class Utils : MonoBehaviour
         Vector3 origin = new Vector3(x, 500, y);
 
         //Send the raycast.
-        Physics.Raycast(origin, Vector3.down, out hit, Mathf.Infinity);
+        Physics.Raycast(origin, Vector3.down, out hit, Mathf.Infinity, layerMask);
 
         //Debug.Log("Terrain location found at " + hit.point);
         return hit.point;

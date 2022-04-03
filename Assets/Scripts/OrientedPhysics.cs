@@ -30,7 +30,7 @@ public class OrientedPhysics : MonoBehaviour
         Vector3 finalVector = GetBoulderVector();
         finalVector += GetFriendVector();
         finalVector += GetPlayerVector();
-
+        float finalAngle = Vector3.Angle(finalVector, transform.forward);
         // Accelerate/decelerate to desired speed
         if (Utils.ApproximatelyEqual(entity.speed, entity.desiredSpeed)) {
             entity.speed = entity.desiredSpeed;
@@ -42,7 +42,8 @@ public class OrientedPhysics : MonoBehaviour
 
         // Normalize/recalculate heading
         entity.heading = Utils.NormalizeAngle(entity.heading);
-        entity.desiredHeading = Utils.NormalizeAngle(Mathf.Atan2(entity.desiredPosition.x - entity.position.x, entity.desiredPosition.z - entity.position.z) * Mathf.Rad2Deg);
+        //entity.desiredHeading = Utils.NormalizeAngle(Mathf.Atan2(entity.desiredPosition.x - entity.position.x, entity.desiredPosition.z - entity.position.z) * Mathf.Rad2Deg);
+        entity.desiredHeading = Utils.NormalizeAngle(finalAngle);
 
         // Adjust heading (turning)
         if (Utils.ApproximatelyEqual(entity.heading, entity.desiredHeading)) {
@@ -63,9 +64,9 @@ public class OrientedPhysics : MonoBehaviour
         transform.localPosition = entity.position;
 
         // Adjust position for terrain height
-        //entity.position = Utils.GetTerrainPos(entity.position.x, entity.position.z) + new Vector3(0.0f, robotLevitation, 0.0f);
+        entity.position = Utils.GetTerrainPos(entity.position.x, entity.position.z) + new Vector3(0.0f, robotLevitation, 0.0f);
 
-        eulerRotation.z = -entity.heading;
+        eulerRotation.y = -entity.heading;
         transform.localEulerAngles = eulerRotation;
     }
 
