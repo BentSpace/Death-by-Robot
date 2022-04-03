@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OrientedPhysics : MonoBehaviour
 {
-    float robotLevitation = 10;
+    float robotLevitation = 1;
     public Robot entity;
     public Vector3 eulerRotation = Vector3.zero;
     public PotentialField player;
