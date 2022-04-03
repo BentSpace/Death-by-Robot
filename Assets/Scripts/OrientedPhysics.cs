@@ -42,7 +42,7 @@ public class OrientedPhysics : MonoBehaviour
 
         // Normalize/recalculate heading
         entity.heading = Utils.NormalizeAngle(entity.heading);
-        entity.desiredHeading = Utils.NormalizeAngle(Mathf.Atan2(entity.desiredPosition.x - entity.position.x, entity.desiredPosition.y - entity.position.y) * Mathf.Rad2Deg);
+        entity.desiredHeading = Utils.NormalizeAngle(Mathf.Atan2(entity.desiredPosition.x - entity.position.x, entity.desiredPosition.z - entity.position.z) * Mathf.Rad2Deg);
 
         // Adjust heading (turning)
         if (Utils.ApproximatelyEqual(entity.heading, entity.desiredHeading)) {
@@ -63,7 +63,7 @@ public class OrientedPhysics : MonoBehaviour
         transform.localPosition = entity.position;
 
         // Adjust position for terrain height
-        entity.position = Utils.GetTerrainPos(entity.position.x, entity.position.z) + new Vector3(0.0f, robotLevitation, 0.0f);
+        //entity.position = Utils.GetTerrainPos(entity.position.x, entity.position.z) + new Vector3(0.0f, robotLevitation, 0.0f);
 
         eulerRotation.z = -entity.heading;
         transform.localEulerAngles = eulerRotation;
