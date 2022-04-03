@@ -63,7 +63,7 @@ public class OrientedPhysics : MonoBehaviour
         transform.localPosition = entity.position;
 
         // Adjust position for terrain height
-        //entity.position = Utils.GetTerrainPos(entity.position.x, entity.position.z) + new Vector3(0.0f, robotLevitation, 0.0f);
+        entity.position = Utils.GetTerrainPos(entity.position.x, entity.position.z) + new Vector3(0.0f, robotLevitation, 0.0f);
 
         eulerRotation.z = -entity.heading;
         transform.localEulerAngles = eulerRotation;
