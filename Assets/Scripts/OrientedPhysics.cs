@@ -75,7 +75,7 @@ public class OrientedPhysics : MonoBehaviour
     float GetHeading(Vector3 start, Vector3 end) {
         Vector3 diff = end - start;
         diff.y = 0;
-        return Mathf.Atan2(diff.y, diff.x);
+        return Mathf.Rad2Deg * Mathf.Atan2(diff.x, diff.z);
     }
 
     public Vector3 GetBoulderVector() {
