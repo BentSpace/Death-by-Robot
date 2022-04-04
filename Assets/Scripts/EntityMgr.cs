@@ -88,7 +88,8 @@ public class EntityMgr : MonoBehaviour
     void SpawnRobot()
     {
         var randomLocation = new Vector3(Random.Range(0.0f, 500.0f), 0, Random.Range(0.0f, 250.0f));
-        Instantiate(robotPrefab, randomLocation, Quaternion.identity);
+        GameObject r = Instantiate(robotPrefab, randomLocation, Quaternion.identity);
+        robots.Add(r);
     }
 
 }
