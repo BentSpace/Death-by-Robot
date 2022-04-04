@@ -85,7 +85,7 @@ public class OrientedPhysics : MonoBehaviour
     public Vector3 GetBoulderVector() {
         Vector3 result = Vector3.zero;
         foreach (GameObject b in EntityMgr.inst.boulders) {
-            result += b.GetComponent<PotentialField>().GetForceVector(entity.position, b.transform.position);
+            result -= b.GetComponent<PotentialField>().GetForceVector(entity.position, b.transform.position);
         }
         return result;
     }
