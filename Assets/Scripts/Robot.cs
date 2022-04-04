@@ -11,9 +11,9 @@ public class Robot : MonoBehaviour
     // VARIABLE
     public float speed;
     public float desiredSpeed;
-    public float maxSpeed;
+    public float maxSpeed = 5;
     public float minSpeed;
-    public float acceleration;
+    public float acceleration = 3;
     //public float cruisingSpeed;
     //public float maneuverSpeed;
     //public float turningSpeed;
@@ -21,7 +21,7 @@ public class Robot : MonoBehaviour
     public float desiredHeading;
     //public float currentStoppingDistance;
     // CONST
-    public float turnRate;
+    public float turnRate = 45;
 
 
     // Start is called before the first frame update

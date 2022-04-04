@@ -168,13 +168,13 @@ MonoBehaviour:
   desiredPosition: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
   speed: 0
-  desiredSpeed: 10
-  maxSpeed: 10
+  desiredSpeed: 0
+  maxSpeed: 5
   minSpeed: 0
-  acceleration: 1.5
+  acceleration: 3
   heading: 0
   desiredHeading: 0
-  turnRate: 90
+  turnRate: 45
 --- !u!114 &4277301704487468327
 MonoBehaviour:
   m_ObjectHideFlags: 0
