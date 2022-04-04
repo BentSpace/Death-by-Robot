@@ -169,10 +169,10 @@ MonoBehaviour:
   desiredSpeed: 0
   maxSpeed: 5
   minSpeed: 0
-  acceleration: 1
+  acceleration: 1.5
   heading: 0
   desiredHeading: 0
-  turnRate: 1
+  turnRate: 90
 --- !u!114 &4277301704487468327
 MonoBehaviour:
   m_ObjectHideFlags: 0

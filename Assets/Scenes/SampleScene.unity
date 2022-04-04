@@ -644,6 +644,7 @@ MonoBehaviour:
   boulderPrefab: {fileID: 0}
   boulders: []
   robots: []
+  robotPrefab: {fileID: 8524979194320801827, guid: 8264068e304170546bf0f8b4af559521, type: 3}
   boulderLimit: 25
   worldPosition: {x: 0, y: 0, z: 0}
   playerPosition: {x: 0, y: 0, z: 0}
@@ -752,7 +753,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6292967740056340877, guid: bd22186c7778b4ca38fb29e70710f7d8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bd22186c7778b4ca38fb29e70710f7d8, type: 3}
 --- !u!4 &1802141466 stripped
 Transform:
