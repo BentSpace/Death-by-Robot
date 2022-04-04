@@ -8,7 +8,7 @@ public class PotentialField : MonoBehaviour
     public float e;
     public string obstacleType;
 
-    public float boulderC =  10f;       // TODO Tweak 'C' values!
+    public float boulderC =  5f;       // TODO Tweak 'C' values!
     public float boulderE = -2f;   // DO NOT CHANGE (repulsive to robots)
     public float robotC   =  5f;
     public float robotE   = -2f;   // DO NOT CHANGE (repulsive to robots)

@@ -145,12 +145,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   c: 0
   e: 0
-  obstacleType: robot
-  boulderC: 10000
+  obstacleType: 
+  boulderC: 10
   boulderE: -2
-  robotC: 10000
+  robotC: 5
   robotE: -2
-  playerC: 5000
+  playerC: 500
   playerE: -1
 --- !u!114 &3932974038976917515
 MonoBehaviour:
@@ -174,7 +174,7 @@ MonoBehaviour:
   acceleration: 3
   heading: 0
   desiredHeading: 0
-  turnRate: 45
+  turnRate: 180
 --- !u!114 &4277301704487468327
 MonoBehaviour:
   m_ObjectHideFlags: 0

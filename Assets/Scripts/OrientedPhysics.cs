@@ -27,7 +27,7 @@ public class OrientedPhysics : MonoBehaviour
     void DoPhysics() {
 
         Vector3 finalVector = new Vector3();
-        //finalvector += GetBoulderVector();
+        finalVector += GetBoulderVector();
         //finalVector += GetFriendVector();
         finalVector += GetPlayerVector();
         finalVector.y = 0;
@@ -55,7 +55,7 @@ public class OrientedPhysics : MonoBehaviour
 
         // Accelerate/decelerate to desired speed
 
-        entity.desiredSpeed = Mathf.Cos(entity.desiredHeading - entity.heading) / 2.0f * entity.maxSpeed;
+        entity.desiredSpeed = Mathf.Cos((entity.desiredHeading - entity.heading) * Mathf.Deg2Rad) / 2.0f * entity.maxSpeed;
         if (Utils.ApproximatelyEqual(entity.speed, entity.desiredSpeed)) {
             entity.speed = entity.desiredSpeed;
         } else if (entity.speed < entity.desiredSpeed) {
@@ -86,7 +86,9 @@ public class OrientedPhysics : MonoBehaviour
     public Vector3 GetBoulderVector() {
         Vector3 result = Vector3.zero;
         foreach (GameObject b in EntityMgr.inst.boulders) {
-            result -= b.GetComponent<PotentialField>().GetForceVector(entity.position, b.transform.position);
+            if (Vector3.Distance(entity.position, b.transform.position) <= b.GetComponent<Rigidbody>().velocity.magnitude) {
+                result -= b.GetComponent<PotentialField>().GetForceVector(entity.position, b.transform.position);
+            }
         }
         return result;
     }

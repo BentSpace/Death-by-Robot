@@ -21,7 +21,7 @@ public class Robot : MonoBehaviour
     public float desiredHeading;
     //public float currentStoppingDistance;
     // CONST
-    public float turnRate = 45;
+    public float turnRate = 180;
 
 
     // Start is called before the first frame update
