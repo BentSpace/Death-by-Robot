@@ -26,18 +26,20 @@ public class OrientedPhysics : MonoBehaviour
 
     void DoPhysics() {
 
-        /*
-        // Potential Field Physics
         Vector3 finalVector = GetBoulderVector();
         finalVector += GetFriendVector();
         finalVector += GetPlayerVector();
-        float finalAngle = Vector3.Angle(finalVector, transform.forward);
-        */
+        finalVector.y = 0;
+        finalVector = Vector3.Normalize(finalVector);
+        //Debug.Log(finalVector);
 
-        Vector3 playerPos = player.gameObject.transform.position;
-        entity.desiredPosition = playerPos;
-        
-        entity.desiredHeading = GetHeading(entity.position, entity.desiredPosition);
+
+        //Vector3 playerPos = player.gameObject.transform.position;
+        //entity.desiredPosition = playerPos;
+        entity.desiredPosition = entity.position + finalVector;
+
+
+        entity.desiredHeading = GetHeading(entity.position, entity.desiredPosition); ;
 
         entity.heading = Utils.NormalizeAngle(entity.heading);
         entity.desiredHeading = Utils.NormalizeAngle(entity.desiredHeading);
@@ -51,6 +53,8 @@ public class OrientedPhysics : MonoBehaviour
         }
 
         // Accelerate/decelerate to desired speed
+
+        entity.desiredSpeed = Mathf.Cos(entity.desiredHeading - entity.heading) / 2.0f * entity.maxSpeed;
         if (Utils.ApproximatelyEqual(entity.speed, entity.desiredSpeed)) {
             entity.speed = entity.desiredSpeed;
         } else if (entity.speed < entity.desiredSpeed) {
@@ -73,7 +77,7 @@ public class OrientedPhysics : MonoBehaviour
     }
 
     float GetHeading(Vector3 start, Vector3 end) {
-        Vector3 diff = end - start;
+        Vector3 diff = -(end - start);
         diff.y = 0;
         return Mathf.Rad2Deg * Mathf.Atan2(diff.x, diff.z);
     }
