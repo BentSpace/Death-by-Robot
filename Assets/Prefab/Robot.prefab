@@ -144,12 +144,12 @@ MonoBehaviour:
   c: 0
   e: 0
   obstacleType: robot
-  boulderC: 1.5
+  boulderC: 10000
   boulderE: -2
-  robotC: 1.5
+  robotC: 10000
   robotE: -2
-  playerC: 1.5
-  playerE: -2
+  playerC: 5000
+  playerE: -1
 --- !u!114 &3932974038976917515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,15 +167,12 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   speed: 0
   desiredSpeed: 0
-  cruisingSpeed: 2.5
-  maneuverSpeed: 0
-  turningSpeed: 1
-  heading: 0
-  desiredHeading: 0
-  acceleration: 1
-  turnRate: 1
   maxSpeed: 5
   minSpeed: 0
+  acceleration: 1
+  heading: 0
+  desiredHeading: 0
+  turnRate: 1
 --- !u!114 &4277301704487468327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,3 +187,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entity: {fileID: 3932974038976917515}
   eulerRotation: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
