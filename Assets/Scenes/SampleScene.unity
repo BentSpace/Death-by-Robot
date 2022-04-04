@@ -641,10 +641,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9141a1f6b2b64da590f55866ca32bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boulderPrefab: {fileID: 0}
+  boulderPrefab: {fileID: 3342518290673868999, guid: 16990c603a3fe4b1e9d3c55c8156bdeb, type: 3}
   boulders: []
-  robots: []
   robotPrefab: {fileID: 8524979194320801827, guid: 8264068e304170546bf0f8b4af559521, type: 3}
+  robots: []
   boulderLimit: 25
   worldPosition: {x: 0, y: 0, z: 0}
   playerPosition: {x: 0, y: 0, z: 0}
@@ -694,6 +694,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1767299588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2392975668401791176, guid: bd22186c7778b4ca38fb29e70710f7d8, type: 3}
+  m_PrefabInstance: {fileID: 1802141465}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1767299589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767299588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae39d1fa02a6a5244bfdb9eb882ee203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1802141465
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,8 +7,9 @@ public class EntityMgr : MonoBehaviour
     // Reference to the Prefab.
     public GameObject boulderPrefab;
     public List<GameObject> boulders;
-    public List<GameObject> robots;
     public GameObject robotPrefab;
+    public List<GameObject> robots;
+    
 
     //public float slowSpeed = 2.5f;
     public int boulderLimit = 25;
@@ -50,7 +51,7 @@ public class EntityMgr : MonoBehaviour
         */
     }
 
-    void OnMouseDown()
+    public void AddBoulder()
     {
         SpawnBoulder();
         while(boulders.Count > boulderLimit) {
