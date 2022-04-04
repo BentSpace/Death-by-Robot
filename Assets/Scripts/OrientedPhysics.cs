@@ -26,8 +26,9 @@ public class OrientedPhysics : MonoBehaviour
 
     void DoPhysics() {
 
-        Vector3 finalVector = GetBoulderVector();
-        finalVector += GetFriendVector();
+        Vector3 finalVector = new Vector3();
+        //finalvector += GetBoulderVector();
+        //finalVector += GetFriendVector();
         finalVector += GetPlayerVector();
         finalVector.y = 0;
         finalVector = Vector3.Normalize(finalVector);
