@@ -286,7 +286,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3585475422838320683, guid: 8264068e304170546bf0f8b4af559521, type: 3}
       propertyPath: robotC
-      value: 20000
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585475422838320683, guid: 8264068e304170546bf0f8b4af559521, type: 3}
+      propertyPath: playerC
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 3585475422838320683, guid: 8264068e304170546bf0f8b4af559521, type: 3}
       propertyPath: playerE
@@ -294,7 +298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3585475422838320683, guid: 8264068e304170546bf0f8b4af559521, type: 3}
       propertyPath: boulderC
-      value: 50000
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3585475422838320683, guid: 8264068e304170546bf0f8b4af559521, type: 3}
       propertyPath: obstacleType
@@ -531,11 +535,11 @@ MonoBehaviour:
   c: 0
   e: 0
   obstacleType: 
-  boulderC: 50000
+  boulderC: 10
   boulderE: -2
-  robotC: 20000
+  robotC: 5
   robotE: -2
-  playerC: 5000
+  playerC: 500
   playerE: -1
 --- !u!1 &963194225
 GameObject:
