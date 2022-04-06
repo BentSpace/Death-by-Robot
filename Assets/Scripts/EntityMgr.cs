@@ -24,7 +24,7 @@ public class EntityMgr : MonoBehaviour
         inst = this;
         playerPosition = GameObject.Find("Player").transform.position;
         boulders = new List<GameObject>();
-        robots = new List<GameObject>();
+        //robots = new List<GameObject>();
         InvokeRepeating("SpawnRobot", 2.0f, 1f);
     }
 
@@ -53,12 +53,13 @@ public class EntityMgr : MonoBehaviour
 
     public void AddBoulder()
     {
-        SpawnBoulder();
-        while(boulders.Count > boulderLimit) {
-            GameObject b = boulders[0];
-            CullBoulder(b);
+        if (!GameManager.inst.gameOver) {
+            SpawnBoulder();
+            while (boulders.Count > boulderLimit) {
+                GameObject b = boulders[0];
+                CullBoulder(b);
+            }
         }
-        
     }
 
 
@@ -92,4 +93,19 @@ public class EntityMgr : MonoBehaviour
         robots.Add(r);
     }
 
+    public void ShutDownEntityGen() {
+        CancelInvoke();
+        ClearAllEntities();
+    }
+
+    void ClearAllEntities() {
+        foreach (GameObject b in boulders) {
+            Destroy(b);
+        }
+        boulders.Clear();
+        foreach (GameObject r in robots) {
+            Destroy(r);
+        }
+        robots.Clear();
+    }
 }
