@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class OrientedPhysics : MonoBehaviour
 {
-    float robotLevitation = 1;
+    public float robotLevitation = 0;
     public Robot entity;
     public Vector3 eulerRotation = Vector3.zero;
     public PotentialField player;
+    public Vector3 normalToTerrain;
+    public TerrainData terrain;
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +77,9 @@ public class OrientedPhysics : MonoBehaviour
         entity.position = Utils.GetTerrainPos(entity.position.x, entity.position.z) + new Vector3(0.0f, robotLevitation, 0.0f);
         transform.localPosition = entity.position;
 
+        // Adjust orientation to be perpendicular to ground
+        AlignTransform(entity.transform);
+
     }
 
     float GetHeading(Vector3 start, Vector3 end) {
@@ -106,4 +111,27 @@ public class OrientedPhysics : MonoBehaviour
     public Vector3 GetPlayerVector() {
         return player.GetComponent<PotentialField>().GetForceVector(entity.position, player.transform.position);
     }
+
+    // Borrowed from https://answers.unity.com/questions/868898/make-gameobject-always-vertical-to-terrain.html
+    public static void AlignTransform(Transform transform)
+    {
+        Vector3 sample = SampleNormal(transform.position);
+
+        Vector3 proj = transform.forward - (Vector3.Dot(transform.forward, sample)) * sample;
+        transform.rotation = Quaternion.LookRotation(proj, sample);
+    }
+
+    // Borrowed from https://answers.unity.com/questions/868898/make-gameobject-always-vertical-to-terrain.html
+    public static Vector3 SampleNormal(Vector3 position)
+    {
+        Terrain terrain = Terrain.activeTerrain;
+        var terrainLocalPos = position - terrain.transform.position;
+        var normalizedPos = new Vector2(
+            Mathf.InverseLerp(0f, terrain.terrainData.size.x, terrainLocalPos.x),
+            Mathf.InverseLerp(0f, terrain.terrainData.size.z, terrainLocalPos.z)
+        );
+        var terrainNormal = terrain.terrainData.GetInterpolatedNormal(normalizedPos.x, normalizedPos.y);
+        return terrainNormal;
+    }
+
 }

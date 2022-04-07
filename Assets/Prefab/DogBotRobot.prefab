@@ -160,6 +160,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4277301704487468327, guid: 8264068e304170546bf0f8b4af559521, type: 3}
+      propertyPath: terrain
+      value: 
+      objectReference: {fileID: 15600000, guid: c28797ae3191b41c5a60712ecf463b55, type: 2}
     - target: {fileID: 6003190385368425857, guid: 8264068e304170546bf0f8b4af559521, type: 3}
       propertyPath: m_Enabled
       value: 1
