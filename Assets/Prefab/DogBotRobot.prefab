@@ -142,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3932974038976917515, guid: 8264068e304170546bf0f8b4af559521, type: 3}
       propertyPath: turnRate
-      value: 180
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3932974038976917515, guid: 8264068e304170546bf0f8b4af559521, type: 3}
       propertyPath: acceleration
