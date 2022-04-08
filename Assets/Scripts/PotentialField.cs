@@ -24,6 +24,7 @@ public class PotentialField : MonoBehaviour
                 e = robotE;
                 break;
             case "boulder":
+            case "4K_BlueStone_Boulder3":
                 c = boulderC;
                 e = boulderE;
                 break;
