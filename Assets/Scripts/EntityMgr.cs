@@ -53,8 +53,9 @@ public class EntityMgr : MonoBehaviour
 
     public void AddBoulder()
     {
-        if (!GameManager.inst.gameOver) {
+        if (!GameManager.inst.gameOver && GameManager.inst.canDrop) {
             SpawnBoulder();
+            GameManager.inst.HandleBoulderDrop();
             while (boulders.Count > boulderLimit) {
                 GameObject b = boulders[0];
                 CullBoulder(b);

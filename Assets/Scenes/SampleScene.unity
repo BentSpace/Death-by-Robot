@@ -1252,6 +1252,11 @@ MonoBehaviour:
   gameOver: 0
   gameOverScreen: {fileID: 171265227}
   txt: {fileID: 1933560374}
+  noBoulder: {r: 1, g: 0, b: 0, a: 0}
+  baseColor: {r: 1, g: 1, b: 1, a: 0}
+  canDropColor: {r: 0, g: 1, b: 0, a: 0}
+  timerFactor: 1
+  canDrop: 0
 --- !u!1 &2103271554
 GameObject:
   m_ObjectHideFlags: 0
