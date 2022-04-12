@@ -6,8 +6,8 @@ public class Utils : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public static float EPSILON = 0.01f;
-    public static float VECTOR_EPSILON = 10f;
+    public static float EPSILON = 1f;
+    public static float VECTOR_EPSILON = 20f;
     public static Utils inst;
     static int layerMask = LayerMask.GetMask("Terrain");
 
