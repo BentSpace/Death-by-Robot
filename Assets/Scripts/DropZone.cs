@@ -17,6 +17,6 @@ public class DropZone : MonoBehaviour
     }
 
     void OnMouseDown() {
-        EntityMgr.inst.AddBoulder();
+        EntityMgr.inst.SpawnHoulder();
     }
 }

@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     float timeLastBoulderDropped;
     public float timerFactor;
     public bool canDrop;
+    public GameObject houlder;
+    public bool isHoulding;
 
 
     void Awake() {
@@ -35,11 +37,34 @@ public class GameManager : MonoBehaviour
 
         inst = this;
         startTime = Time.time;
+        houlder = null;
+        isHoulding = false;
     }
 
     // Update is called once per frame
     void Update() {
         UpdatePlayerColor();
+        if (isHoulding) {
+             if (Input.GetMouseButton(0)) {
+                Debug.Log("Holding Down Mouse Button");
+                Plane plane = new Plane(Vector3.up, EntityMgr.inst.playerPosition);
+                float distance;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (plane.Raycast(ray, out distance)) {
+                    EntityMgr.inst.worldPosition = ray.GetPoint(distance);
+                    houlder.transform.position = EntityMgr.inst.worldPosition;
+                }
+                houlder.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            } else {
+                Debug.Log("Released");
+                EntityMgr.inst.boulders.Add(houlder);
+                isHoulding = false;
+                HandleBoulderDrop();
+                EntityMgr.inst.ManageBoulders();
+            }
+        } else {
+            Debug.Log("Not Much Happening");
+        }
     }
 
     public void EndGame() {

@@ -60,30 +60,26 @@ public class EntityMgr : MonoBehaviour
         */
     }
 
-    public void AddBoulder()
-    {
-        if (!GameManager.inst.gameOver && GameManager.inst.canDrop) {
-            SpawnBoulder();
-            GameManager.inst.HandleBoulderDrop();
-            while (boulders.Count > boulderLimit) {
-                GameObject b = boulders[0];
-                CullBoulder(b);
-            }
+
+    public void ManageBoulders() {
+        while (boulders.Count > boulderLimit) {
+            GameObject b = boulders[0];
+            CullBoulder(b);
         }
     }
 
-
-    void SpawnBoulder()
-    {
-        Plane plane = new Plane(Vector3.up, playerPosition);
-        float distance;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (plane.Raycast(ray, out distance))
-        {
-            worldPosition = ray.GetPoint(distance);
+    public void SpawnHoulder() {
+        if (!GameManager.inst.gameOver && GameManager.inst.canDrop) {
+            Plane plane = new Plane(Vector3.up, playerPosition);
+            float distance;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (plane.Raycast(ray, out distance)) {
+                worldPosition = ray.GetPoint(distance);
+            }
+            GameObject b = Instantiate(boulderPrefab, worldPosition, Quaternion.identity);
+            GameManager.inst.houlder = b;
+            GameManager.inst.isHoulding = true;
         }
-        GameObject b = Instantiate(boulderPrefab, worldPosition, Quaternion.identity);
-        boulders.Add(b);
     }
 
     public void CullRobot(GameObject tobor) {
