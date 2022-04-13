@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
 
     void MakePlayerExplode()
     {
-        playerGO = GameObject.Find("Player");
+        //playerGO = GameObject.Find("Player");
         GameObject explosion = Instantiate(explosionPrefab, playerGO.transform.position, Quaternion.identity);
         GameObject blood = Instantiate(bloodPrefab, playerGO.transform.position, Quaternion.identity);
         playerGO.SetActive(false);
