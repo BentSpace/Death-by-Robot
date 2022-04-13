@@ -78,7 +78,8 @@ public class EntityMgr : MonoBehaviour
     }
 
     public void CullRobot(GameObject tobor) {
-        Instantiate(explosionPrefab, tobor.transform.position, Quaternion.identity);
+        GameObject explosion = Instantiate(explosionPrefab, tobor.transform.position, Quaternion.identity);
+        Destroy(explosion, 3.0f);
         robots.Remove(tobor);
         Destroy(tobor);
     }
