@@ -1469,6 +1469,10 @@ PrefabInstance:
       propertyPath: m_Pitch
       value: 1.9
       objectReference: {fileID: 0}
+    - target: {fileID: -6294863287614482000, guid: b8aec6921128e4b67bc9ea73272d5da5, type: 3}
+      propertyPath: m_Volume
+      value: 0.501
+      objectReference: {fileID: 0}
     - target: {fileID: 1649072773, guid: b8aec6921128e4b67bc9ea73272d5da5, type: 3}
       propertyPath: m_Size.x
       value: 1.4
