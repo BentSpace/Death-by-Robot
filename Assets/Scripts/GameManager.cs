@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Canvas gameOverScreen;
     public Text txt;
     float startTime;
+    public GameObject readyCircle;
 
     public Color noBoulder;
     public Color baseColor;
@@ -70,6 +71,6 @@ public class GameManager : MonoBehaviour
     }
 
     void SetPlayerColor(Color c) {
-        player.gameObject.GetComponent<Renderer>().material.SetColor("_Color", c);
+        readyCircle.gameObject.GetComponent<Renderer>().material.SetColor("_Color", c);
     }
 }
