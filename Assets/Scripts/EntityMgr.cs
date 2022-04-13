@@ -9,7 +9,7 @@ public class EntityMgr : MonoBehaviour
     public List<GameObject> boulders;
     public GameObject robotPrefab;
     public List<GameObject> robots;
-    
+    public GameObject explosionPrefab;
 
     //public float slowSpeed = 2.5f;
     public int boulderLimit = 25;
@@ -78,6 +78,7 @@ public class EntityMgr : MonoBehaviour
     }
 
     public void CullRobot(GameObject tobor) {
+        Instantiate(explosionPrefab, tobor.transform.position, Quaternion.identity);
         robots.Remove(tobor);
         Destroy(tobor);
     }

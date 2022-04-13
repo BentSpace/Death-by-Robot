@@ -852,6 +852,7 @@ MonoBehaviour:
   robotPrefab: {fileID: 5483975780328739064, guid: b8aec6921128e4b67bc9ea73272d5da5, type: 3}
   robots:
   - {fileID: 905373360}
+  explosionPrefab: {fileID: 0}
   boulderLimit: 1000
   worldPosition: {x: 0, y: 0, z: 0}
   playerPosition: {x: 0, y: 0, z: 0}
@@ -1327,11 +1328,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2148864236406173885, guid: b8aec6921128e4b67bc9ea73272d5da5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 124.3
+      value: 254.3
       objectReference: {fileID: 0}
     - target: {fileID: 2148864236406173885, guid: b8aec6921128e4b67bc9ea73272d5da5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 100
+      value: 327.1
       objectReference: {fileID: 0}
     - target: {fileID: 2148864236406173885, guid: b8aec6921128e4b67bc9ea73272d5da5, type: 3}
       propertyPath: m_LocalRotation.w
