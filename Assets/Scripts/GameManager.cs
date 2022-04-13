@@ -8,11 +8,14 @@ public class GameManager : MonoBehaviour
 
     public static GameManager inst;
     public PotentialField player;
+    public GameObject playerGO;
     public bool gameOver;
     public Canvas gameOverScreen;
     public Text txt;
     float startTime;
     public GameObject readyCircle;
+    public GameObject explosionPrefab;
+    public GameObject bloodPrefab;
 
     public Color noBoulder;
     public Color baseColor;
@@ -46,6 +49,7 @@ public class GameManager : MonoBehaviour
 
 
     public void GameOver() {
+        MakePlayerExplode();
         EndGame();
         // Make game over screen visible
         gameOverScreen.gameObject.SetActive(true);
@@ -72,5 +76,15 @@ public class GameManager : MonoBehaviour
 
     void SetPlayerColor(Color c) {
         readyCircle.gameObject.GetComponent<Renderer>().material.SetColor("_Color", c);
+    }
+
+    void MakePlayerExplode()
+    {
+        playerGO = GameObject.Find("Player");
+        GameObject explosion = Instantiate(explosionPrefab, playerGO.transform.position, Quaternion.identity);
+        GameObject blood = Instantiate(bloodPrefab, playerGO.transform.position, Quaternion.identity);
+        playerGO.SetActive(false);
+        Destroy(explosion, 3.0f);
+        Destroy(blood, 4.0f);
     }
 }

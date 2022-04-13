@@ -1304,10 +1304,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 709455217}
+  playerGO: {fileID: 709455212}
   gameOver: 0
   gameOverScreen: {fileID: 171265227}
   txt: {fileID: 1933560374}
   readyCircle: {fileID: 877755927}
+  explosionPrefab: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
+  bloodPrefab: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
   noBoulder: {r: 1, g: 0, b: 0, a: 0}
   baseColor: {r: 1, g: 1, b: 1, a: 0}
   canDropColor: {r: 0, g: 1, b: 0, a: 0}
