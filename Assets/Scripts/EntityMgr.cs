@@ -12,6 +12,10 @@ public class EntityMgr : MonoBehaviour
     public GameObject explosionPrefab;
     //public AudioClip[] explosionSFXs;
     //public AudioSource randomExplosionSFX;
+    public float initialTimeToSpawn = 8f;
+    public float timeToSpawn = 8f;
+    public float timer;
+    public float timingModifier = 1.1f;
 
     //public float slowSpeed = 2.5f;
     public int boulderLimit = 25;
@@ -26,13 +30,16 @@ public class EntityMgr : MonoBehaviour
         inst = this;
         playerPosition = GameObject.Find("Player").transform.position;
         boulders = new List<GameObject>();
+        timeToSpawn = initialTimeToSpawn;
         //robots = new List<GameObject>();
-        InvokeRepeating("SpawnRobot", 2.0f, 1f);
+        //InvokeRepeating("SpawnRobot", 2.0f, 1f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.inst.gameOver)
+            progressiveSpawn();
         /* Time-based culling
         foreach(Boulder b in boulders) {
             // If the boulder is going too slowly, start the process of decay
@@ -114,5 +121,18 @@ public class EntityMgr : MonoBehaviour
             Destroy(r);
         }
         robots.Clear();
+    }
+
+    void progressiveSpawn()
+    {
+        timer -= Time.deltaTime;
+
+        if (timer < 0)
+        {
+            SpawnRobot();
+            timeToSpawn = (timeToSpawn / timingModifier);
+            timer = timeToSpawn;    
+            //timingModifier += timingModifier;
+        }
     }
 }
