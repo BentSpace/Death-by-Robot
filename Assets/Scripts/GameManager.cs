@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -111,5 +112,10 @@ public class GameManager : MonoBehaviour
         playerGO.SetActive(false);
         Destroy(explosion, 3.0f);
         Destroy(blood, 4.0f);
+    }
+
+    public void PlayAgain() {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 }
