@@ -118,7 +118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3585475422838320683, guid: 8264068e304170546bf0f8b4af559521, type: 3}
       propertyPath: robotC
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3585475422838320683, guid: 8264068e304170546bf0f8b4af559521, type: 3}
       propertyPath: playerC

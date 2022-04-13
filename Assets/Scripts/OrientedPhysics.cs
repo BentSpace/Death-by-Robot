@@ -10,7 +10,7 @@ public class OrientedPhysics : MonoBehaviour
     public PotentialField player;
     public Vector3 normalToTerrain;
     public TerrainData terrain;
-    public float robotPersonalSpace = 10f;
+    public float robotPersonalSpace = 20f;
 
     // Start is called before the first frame update
     void Start()
