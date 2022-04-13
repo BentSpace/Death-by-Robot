@@ -10,6 +10,8 @@ public class EntityMgr : MonoBehaviour
     public GameObject robotPrefab;
     public List<GameObject> robots;
     public GameObject explosionPrefab;
+    //public AudioClip[] explosionSFXs;
+    //public AudioSource randomExplosionSFX;
 
     //public float slowSpeed = 2.5f;
     public int boulderLimit = 25;
@@ -80,6 +82,8 @@ public class EntityMgr : MonoBehaviour
     public void CullRobot(GameObject tobor) {
         GameObject explosion = Instantiate(explosionPrefab, tobor.transform.position, Quaternion.identity);
         Destroy(explosion, 3.0f);
+        //randomExplosionSFX.clip = explosionSFXs[Random.Range(0, explosionSFXs.Length)];
+        //AudioSource.PlayClipAtPoint(randomExplosionSFX.clip, tobor.transform.position, 1);
         robots.Remove(tobor);
         Destroy(tobor);
     }
