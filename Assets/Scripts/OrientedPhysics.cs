@@ -10,6 +10,7 @@ public class OrientedPhysics : MonoBehaviour
     public PotentialField player;
     public Vector3 normalToTerrain;
     public TerrainData terrain;
+    public float robotPersonalSpace = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -101,7 +102,7 @@ public class OrientedPhysics : MonoBehaviour
     public Vector3 GetFriendVector() {
         Vector3 result = Vector3.zero;
         foreach (GameObject ent in EntityMgr.inst.robots) {
-            if (ent != entity) {
+            if (ent != entity && (ent.transform.position - entity.transform.position).magnitude <= robotPersonalSpace) {
                 result += ent.gameObject.GetComponent<PotentialField>().GetForceVector(entity.position, ent.transform.position);
             }
         }
